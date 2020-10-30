@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Snake</title>
+
+    <link rel="stylesheet" href="/client/css/snake.css">
+    <script src="/client/js/snake.js"></script>
+</head>
+
+<header>
+    <div class="header">
+        <div class="left">
+            <button class="button home" onclick="window.location.href='index.html'">Home</button>
+        </div>
+        <h1>Snake Game</h1>
+    </div>
+    <div class="yellow"></div>
+</header>
+
+<body onload="pageLoad()">
+
+<div id="pageContent">
+    <div class="left">
+        <h2>Score: <span id="score">0</span> | Highscore: </h2>
+    </div>
+    <canvas id="snakeCanvas"/>
+
+</div>
+</body>
+</html>

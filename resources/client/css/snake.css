@@ -1,0 +1,56 @@
+body {
+    background-color: #5CDB95;
+}
+
+.header {
+    padding: 10px;
+    text-align: center;
+    background: #379683;
+}
+
+.home {
+    padding: 8px 16px;
+    background-color: #379683;
+    color: #EDF5E1;
+    border: 2px solid #379683;
+    font-family: "Arial";
+    font-size: 20px;
+}
+
+.home:hover {
+    padding: 8px 16px;
+    background-color: #EDF5E1;
+    color: #05386B;
+}
+
+.left{
+    text-align: left;
+}
+
+h1 {
+    font-weight: bold;
+    font-family: 'Arial';
+    font-size: 40pt;
+    color: #EDF5E1;
+}
+
+h2 {
+    font-weight: bold;
+    font-family: 'courier New';
+    color: #05386B;
+    padding-top: 10px;
+}
+
+#pageContent {
+    background-color: #EDF5E1;
+    max-width: 800px;
+    min-width: 800px;
+    padding-right: 3px;
+    padding-left: 3px;
+}
+
+#snakeCanvas {
+    width: 800px;
+    height: 600px;
+    background-color: black;
+}
