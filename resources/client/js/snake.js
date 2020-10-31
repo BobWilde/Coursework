@@ -13,6 +13,7 @@ let snakeDirection = 'S';       // [N]orth, [S]outh, [E]ast, [W]est
 let snakeAlive = true;          // Gets set to false when you lose the game!
 let snakeMaxLength = START_LENGTH;      // How long the snake can grow (increases when you eat apples)
 let snakeAlreadyTurned = false;             // This limits you to one change of direction per animation frame
+let appleEaten=true;
 
 /*-------------------------------------------------------
 This function runs when the page first loads. Look for
@@ -24,7 +25,7 @@ function pageLoad() {
     snake.push(firstSegment);                                   // Add it to the snake segments list.
 
     setInterval(updateSnake, 200);      // Schedule a snake update every 200ms (5 times per second)
-    setInterval(addApple, 3000);        // Schedule a new apple to appear every second
+    setInterval(checkApple, 200);        // Schedule a new apple to appear every second
 
     document.addEventListener('keydown', checkKeyPress);        // Assign the function 'checkKeyPress'
                                                                 // to handle when a key is pressed.
@@ -77,6 +78,7 @@ function updateSnake() {
                     snakeMaxLength++;                                           // ... then increase the snake's max length by one ...
                     document.getElementById('score').innerHTML = snakeMaxLength - START_LENGTH;   // ... update the score ...
                     apples = apples.filter(a => a !== apple);                   // ... remove this apple from the list of apples ...
+                    appleEaten=true;
                     break;                            // ... and terminate stop checking (you can only with one apple at a time!)
                 }
             }
@@ -119,7 +121,7 @@ function drawCanvas() {
     for (let segment of snake) {              // Next, we need to draw each of the snake's body segments...
 
         if (snakeAlive) {
-            context.fillStyle = 'green';     // If the snake is alive, it will be purple
+            context.fillStyle = 'lime';     // If the snake is alive, it will be purple
         } else if (snake.length >= (MAX_X/GRID_SIZE)*(MAX_Y/GRID_SIZE)) {
             context.fillStyle = 'gold';       // If the snake fills the whole screen, it will be gold!
         } else {
@@ -178,5 +180,11 @@ function addApple() {
         y: Math.floor(Math.random() * MAX_Y/GRID_SIZE)   // Math.floor rounds down
     };
     apples.push(newApple);      // ...and add it to the list of apples.
+    appleEaten=false;
+}
 
+function checkApple() {
+    if(appleEaten==true){
+        addApple();
+    }
 }

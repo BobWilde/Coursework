@@ -6,6 +6,7 @@
 
     <link rel="stylesheet" href="/client/css/snake.css">
     <script src="/client/js/snake.js"></script>
+    <script src="/client/js/scores.js"></script>
 </head>
 
 <header>
@@ -18,14 +19,23 @@
     <div class="yellow"></div>
 </header>
 
-<body onload="pageLoad()">
+<body>
+<div id="container">
+    <div id="snake_game">
+        <div class="left">
+            <h2>Score: <span id="score">0</span> | Highscore: </h2>
+        </div>
+        <canvas id="snakeCanvas"/>
 
-<div id="pageContent">
-    <div class="left">
-        <h2>Score: <span id="score">0</span> | Highscore: </h2>
     </div>
-    <canvas id="snakeCanvas"/>
 
+    <div id="page_content">
+        <button class="button_1" onclick=pageLoad()>Start Game</button>
+        <button class="button_1" onclick="window.location.href='snake.html'">Reset</button>
+        <button class="button_1" onclick=getScoresList()>Scores</button>
+        <table id="ScoresTable"></table>
+
+    </div>
 </div>
 </body>
 </html>

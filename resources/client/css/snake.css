@@ -5,19 +5,34 @@ body {
 .header {
     padding: 10px;
     text-align: center;
-    background: #379683;
+    background: #05386B;
 }
 
 .home {
     padding: 8px 16px;
-    background-color: #379683;
+    background-color: #05386B;
     color: #EDF5E1;
-    border: 2px solid #379683;
+    border: 2px solid #05386B;
     font-family: "Arial";
     font-size: 20px;
 }
 
 .home:hover {
+    padding: 8px 16px;
+    background-color: #EDF5E1;
+    color: #05386B;
+}
+
+.button_1{
+    padding: 8px 16px;
+    background-color: #379683;
+    color: #EDF5E1;
+    border: 2px solid #05386B;
+    font-family: "Arial";
+    font-size: 20px;
+}
+
+.button_1:hover {
     padding: 8px 16px;
     background-color: #EDF5E1;
     color: #05386B;
@@ -41,7 +56,7 @@ h2 {
     padding-top: 10px;
 }
 
-#pageContent {
+#snake_game {
     background-color: #EDF5E1;
     max-width: 800px;
     min-width: 800px;
@@ -53,4 +68,19 @@ h2 {
     width: 800px;
     height: 600px;
     background-color: black;
+    float: left;
+    display: inline-block;
+}
+
+#page_content{
+    background-color: #379683;
+    position: absolute;
+    padding: 10px;
+    float: right;
+    width: 1065px;
+    height: 575px;
+    border: 3px solid #379683;
+    margin: 0px 9px;
+    font-family: Arial;
+    display: inline-block;
 }
