@@ -9,10 +9,18 @@
 
 <body>
 
-<button onclick="window.location.href='snake.html'">Play Game</button>
-<button onclick='getUsersList();'>Get Users</button>
-<button onclick='logout();'>Logout</button>
-<table id="UsersTable"></table>
+<header>
+    <div class="header">
+        <div id="header_buttons">
+            <div class="left">
+                <button class="button button_2" onclick='logout();'>Logout</button>
+                <button class="button button_2" onclick="window.location.href='admin.html'">Admin</button>
+            </div>
+        </div>
+        <h1>Wilde Games</h1>
+    </div>
+</header>
+<div class="button button_1" onclick="window.location.href='snake.html'"><span>Snake</span></div>
 <br>
 
 </body>

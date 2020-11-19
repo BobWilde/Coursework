@@ -1,3 +1,70 @@
+
 body{
-    background-color: turquoise;
+    background-color: black;
+    margin:0;
+    color:white;
+    text-align: center;
+}
+
+header{
+    color: #FCF7F8;
+    background-color: #A31621;
+    padding:60px;
+    font-family: "Arial Black";
+    font-size: 25px;
+}
+
+
+.left{
+    text-align: left;
+}
+
+.button {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    text-align: center;
+    color: #000;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-left: 30px;
+    margin-bottom: 30px;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.button_1 {
+    width: 400px;
+    background-color: transparent;
+    border: 3px solid lightgreen;
+    border-radius: 25px;
+    color: lightgreen;
+    content:"Snake";
+    transition: all 0.5s;
+    transition-timing-function: ease-in-out;
+    font-family: "Franklin Gothic Book";
+    font-size: 50px;
+    margin-top: 250px;
+}
+
+.button_1:hover {
+    box-shadow: 0 0 10px 0 green inset, 0 0 20px 2px green;
+    text-shadow: 0 0 60px green;
+    border: 3px solid lightgreen;
+    color: lightgreen;
+}
+
+.button_2{
+    width: 100px;
+    height: 30px;
+    padding:0px;
+    margin:5px;
+    background-color: #A31621;
+    border: 3px solid #FCF7F8;
+    border-radius: 25px;
+    color: #FCF7F8;
+}
+
+.button_2:hover {
+    background-color: #FCF7F8;
+    color: #A31621;
 }
