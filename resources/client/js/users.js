@@ -16,6 +16,26 @@ function getUsersList() {
     });
 }
 
+function addUser() {
+    debugger;
+    console.log("Invoked AddUser()");
+    const formData = new FormData(document.getElementById('NewUserForm'));
+    let url = "/users/add";
+    fetch(url, {
+        method: "POST",
+        body: formData,
+    }).then(response => {
+        return response.json()
+    }).then(response => {
+        if (response.hasOwnProperty("Error")) {
+            alert(JSON.stringify(response));
+        } else {
+            window.open("index.html", "_self");   //URL replaces the current page.  Create a new html file
+        }                                                  //in the client folder called welcome.html
+    });
+
+}
+
 function formatUsersList(myJSONArray){
     let dataHTML = "";
     for (let item of myJSONArray) {
@@ -47,7 +67,7 @@ function UsersLogin() {
 }
 
 function logout() {
-    debugger;
+    //debugger;
     console.log("Invoked logout");
     let url = "/users/logout";
     fetch(url, {method: "POST"
@@ -59,7 +79,7 @@ function logout() {
         } else {
             Cookies.remove("Token", response.Token);    //UserName and Token are removed
             Cookies.remove("UserName", response.UserName);
-            window.open("index.html", "_self");       //open index.html in same tab
+            window.open("login.html", "_self");       //open index.html in same tab
         }
     });
 }

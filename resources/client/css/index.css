@@ -39,7 +39,7 @@ header{
     border-radius: 25px;
     color: lightgreen;
     content:"Snake";
-    transition: all 0.5s;
+    transition: all 0.25s;
     transition-timing-function: ease-in-out;
     font-family: "Franklin Gothic Book";
     font-size: 50px;

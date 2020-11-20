@@ -63,11 +63,10 @@ public class Users{
 
     @POST
     @Path("add")
-    public String UsersAdd(@FormDataParam("UserID") Integer UserID, @FormDataParam("Username") String Username, @FormDataParam("Email") String Email, @FormDataParam("Password") String Password) {
+    public String UsersAdd(@FormDataParam("Username") String Username, @FormDataParam("Email") String Email, @FormDataParam("Password") String Password) {
         System.out.println("Invoked Users.UsersAdd()");
         try {
-            PreparedStatement ps = Main.db.prepareStatement("INSERT INTO Users (UserID, Username, Email, Password, LevelID, Admin) VALUES (?, ?, ?, ?, ?, ?)");
-            ps.setInt(1, UserID);
+            PreparedStatement ps = Main.db.prepareStatement("INSERT INTO Users (Username, Email, Password, LevelID, Admin) VALUES (?, ?, ?, ?, ?)");
             ps.setString(2, Username);
             ps.setString(3, Email);
             ps.setString(4, Password);
