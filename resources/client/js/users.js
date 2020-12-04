@@ -61,6 +61,7 @@ function UsersLogin() {
     } else {
         Cookies.set("Token", response.Token);
         Cookies.set("UserName", response.UserName);
+        Cookies.set("Admin", response.Admin);
         window.open("index.html", "_self");       //open index.html in same tab
     }
 });
@@ -82,6 +83,16 @@ function logout() {
             window.open("login.html", "_self");       //open index.html in same tab
         }
     });
+}
+
+function admin(){
+    let admin = Cookies.get("Admin");
+    if(admin==1){
+        window.open("admin.html", "_self");
+    }
+    else{
+        alert("You are not an admin! Please log in on an admin account.");
+    }
 }
 
 

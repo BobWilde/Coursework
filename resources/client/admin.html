@@ -4,9 +4,24 @@
     <meta charset="UTF-8">
     <title>Admin</title>
     <script src="/client/js/users.js"></script>
+    <link rel="stylesheet" type="text/css" href="/client/css/admin.css">
 </head>
 <body>
+
+<header>
+    <div class="header">
+        <div id="header_buttons">
+            <div class="left">
+                <button class="button button_1" onclick="window.location.href='index.html'">HOME</button>
+            </div>
+        <h1>Admin</h1>
+    </div>
+</header>
+
+
 <button onclick='getUsersList();'>Get Users</button>
-<table id="UsersTable"></table>
+<div id="PageContent">
+    <table id="UsersTable"></table>
+</div>
 </body>
 </html>

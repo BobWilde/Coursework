@@ -1,0 +1,35 @@
+body{
+    background-color: #282828;
+    margin:0;
+    color: white;
+}
+
+header{
+    color: white;
+    background-color: #3500D3;
+    padding:60px;
+    font-family: "Arial Black";
+    font-size: 25px;
+    text-align: center;
+}
+
+.left{
+    text-align: left;
+}
+
+.button_1{
+    width: 100px;
+    height: 30px;
+    padding:0px;
+    margin:5px;
+    background-color: #3500D3;
+    border: 3px solid white;
+    border-radius: 25px;
+    color: white;
+    font-weight: bolder;
+}
+
+.button_1:hover {
+    background-color: white;
+    color: #3500D3;
+}

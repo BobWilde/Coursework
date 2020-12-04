@@ -85,11 +85,12 @@ public class Users{
     public String UsersLogin(@FormDataParam("UserName") String UserName, @FormDataParam("PassWord") String PassWord) {
         System.out.println("Invoked loginUser() on path users/login");
         try {
-            PreparedStatement ps1 = Main.db.prepareStatement("SELECT PassWord FROM Users WHERE UserName = ?");
+            PreparedStatement ps1 = Main.db.prepareStatement("SELECT PassWord, Admin FROM Users WHERE UserName = ?");
             ps1.setString(1, UserName);
             ResultSet loginResults = ps1.executeQuery();
             if (loginResults.next() == true) {
                 String correctPassword = loginResults.getString(1);
+                int Admin = loginResults.getInt(2);
                 if (PassWord.equals(correctPassword)) {
                     String Token = UUID.randomUUID().toString();
                     PreparedStatement ps2 = Main.db.prepareStatement("UPDATE Users SET Token = ? WHERE UserName = ?");
@@ -99,6 +100,7 @@ public class Users{
                     JSONObject userDetails = new JSONObject();
                     userDetails.put("UserName", UserName);
                     userDetails.put("Token", Token);
+                    userDetails.put("Admin", Admin);
                     return userDetails.toString();
                 } else {
                     return "{\"Error\": \"Incorrect password!\"}";

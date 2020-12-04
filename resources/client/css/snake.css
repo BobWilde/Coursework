@@ -9,16 +9,18 @@ body {
 }
 
 .home {
-    padding: 8px 16px;
+    width: 100px;
+    height: 30px;
+    padding:0px;
+    margin:5px;
     background-color: #05386B;
+    border: 3px solid #EDF5E1;
+    border-radius: 25px;
     color: #EDF5E1;
-    border: 2px solid #05386B;
-    font-family: "Arial";
-    font-size: 20px;
+    font-weight: bold;
 }
 
 .home:hover {
-    padding: 8px 16px;
     background-color: #EDF5E1;
     color: #05386B;
 }
@@ -30,6 +32,7 @@ body {
     border: 2px solid #05386B;
     font-family: "Arial";
     font-size: 20px;
+    border-radius: 30px;
 }
 
 .button_1:hover {
