@@ -45,7 +45,7 @@ public class Users{
     public String GetUser(@PathParam("UserID") Integer UserID) {
         System.out.println("Invoked Users.GetUser() with UserID " + UserID);
         try {
-            PreparedStatement ps = Main.db.prepareStatement("SELECT UserName, Email FROM Users WHERE UserID = ?");
+            PreparedStatement ps = Main.db.prepareStatement("SELECT UserName, Email, FROM Users WHERE UserID = ?");
             ps.setInt(1, UserID);
             ResultSet results = ps.executeQuery();
             JSONObject response = new JSONObject();
@@ -63,15 +63,18 @@ public class Users{
 
     @POST
     @Path("add")
-    public String UsersAdd(@FormDataParam("Username") String Username, @FormDataParam("Email") String Email, @FormDataParam("Password") String Password) {
+    public String UsersAdd(
+            @FormDataParam("UserName") String Username,
+            @FormDataParam("Email") String Email,
+            @FormDataParam("Password") String Password) {
         System.out.println("Invoked Users.UsersAdd()");
         try {
             PreparedStatement ps = Main.db.prepareStatement("INSERT INTO Users (Username, Email, Password, LevelID, Admin) VALUES (?, ?, ?, ?, ?)");
-            ps.setString(2, Username);
-            ps.setString(3, Email);
-            ps.setString(4, Password);
-            ps.setInt(5, 1);
-            ps.setInt(6, 0);
+            ps.setString(1, Username);
+            ps.setString(2, Email);
+            ps.setString(3, Password);
+            ps.setInt(4, 1);
+            ps.setInt(5, 0);
             ps.execute();
             return "{\"OK\": \"Added user.\"}";
         } catch (Exception exception) {
