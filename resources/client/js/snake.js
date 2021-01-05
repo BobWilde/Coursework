@@ -24,7 +24,7 @@ function pageLoad() {
     let firstSegment = {x: snakeHead.x, y: snakeHead.y};        // The very first body segment of the snake.
     snake.push(firstSegment);                                   // Add it to the snake segments list.
 
-    setInterval(updateSnake, 200);      // Schedule a snake update every 200ms (5 times per second)
+    setInterval(updateSnake, 150);      // Schedule a snake update every 200ms (5 times per second)
     setInterval(checkApple, 200);        // Schedule a new apple to appear every second
 
     document.addEventListener('keydown', checkKeyPress);        // Assign the function 'checkKeyPress'

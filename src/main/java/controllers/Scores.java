@@ -23,12 +23,12 @@ public class Scores {
         System.out.println("Invoked Scores.ScoresList()");
         JSONArray response = new JSONArray();
         try {
-            PreparedStatement ps = Main.db.prepareStatement("SELECT UserID, Score FROM Scores");
+            PreparedStatement ps = Main.db.prepareStatement("SELECT Users.Username, Scores.Score FROM Scores JOIN Users ON Scores.UserID=Users.UserID");
             ResultSet results = ps.executeQuery();
             while (results.next() == true) {
                 JSONObject row = new JSONObject();
-                row.put("UserID", results.getInt(2));
-                row.put("Score", results.getInt(5));
+                row.put("Username", results.getString(1));
+                row.put("Score", results.getInt(2));
                 response.add(row);
             }
             return response.toString();

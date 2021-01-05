@@ -19,7 +19,7 @@ function getScoresList() {
 function formatScoresList(myJSONArray){
     let dataHTML = "";
     for (let item of myJSONArray) {
-        dataHTML += "<tr><td>" + item.UserID + "<td><td>" + item.Score + "<tr><td>";
+        dataHTML += "<tr><td>" + item.Username + "<td><td>" + item.Score + "<tr><td>";
     }
     document.getElementById("ScoresTable").innerHTML = dataHTML;
 }
