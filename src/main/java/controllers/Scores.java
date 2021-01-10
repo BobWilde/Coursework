@@ -37,4 +37,23 @@ public class Scores {
             return "{\"Error\": \"Unable to list items.  Error code xx.\"}";
         }
     }
+
+    @POST
+    @Path("add")
+    public String ScoresAdd(
+            @FormDataParam("Score") Integer Score) {
+        System.out.println("Invoked Users.UsersAdd()");
+        try {
+            PreparedStatement ps = Main.db.prepareStatement("INSERT INTO Scores (GameID, Score) VALUES (?, ?)");
+            ps.setInt(1, 1);
+            ps.setInt(2, Score);
+            ps.execute();
+            return "{\"OK\": \"Added user.\"}";
+        } catch (Exception exception) {
+            System.out.println("Database error: " + exception.getMessage());
+            return "{\"Error\": \"Unable to create new item, please see server console for more info.\"}";
+        }
+
+    }
 }
+

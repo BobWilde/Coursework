@@ -23,7 +23,7 @@
 <div id="container">
     <div id="snake_game">
         <div class="left">
-            <h2>Score: <span id="score">0</span> | Highscore: </h2>
+            <h2>Score: <span id="score">0</span> </h2>
         </div>
         <canvas id="snakeCanvas"/>
 
@@ -33,9 +33,13 @@
         <button class="button_1" onclick=pageLoad()>Start Game</button>
         <button class="button_1" onclick="window.location.href='snake.html'">Reset</button>
         <button class="button_1" onclick=getScoresList()>Scores</button>
+        <button class="button_1" onclick=howToPlay()>How to Play</button>
+        <br><br>
         <table id="ScoresTable"></table>
+        <table id="PersonalScore"></table>
 
     </div>
+</div>
 </div>
 </body>
 </html>

@@ -14,6 +14,7 @@ let snakeAlive = true;          // Gets set to false when you lose the game!
 let snakeMaxLength = START_LENGTH;      // How long the snake can grow (increases when you eat apples)
 let snakeAlreadyTurned = false;             // This limits you to one change of direction per animation frame
 let appleEaten=true;
+let score=0;
 
 /*-------------------------------------------------------
 This function runs when the page first loads. Look for
@@ -54,12 +55,15 @@ function updateSnake() {
             snakeHead.x >= MAX_X/GRID_SIZE ||               // or if snake's head has hit right edge
             snakeHead.y >= MAX_Y/GRID_SIZE) {               // or if snake's head has hit bottom edge
             snakeAlive = false;                             // then the snake is dead!
+            addScore();
+
         }
 
         for (let segment of snake) {                        // Check each of the snake's body segments...
             if (segment.x == snakeHead.x &&                 // If the segment has the same x co-ordinate
                 segment.y == snakeHead.y) {                 // and the same y co-ordinate as the new head position
                 snakeAlive = false;                         // then the snake is dead!
+                addScore();
                 break;                                      // (and there's no point checking any other segments)
             }
         }
@@ -77,6 +81,7 @@ function updateSnake() {
                 if (apple.x == newSegment.x && apple.y == newSegment.y) {       // ... if the new segement has collided with an apple...
                     snakeMaxLength++;                                           // ... then increase the snake's max length by one ...
                     document.getElementById('score').innerHTML = snakeMaxLength - START_LENGTH;   // ... update the score ...
+                    score=snakeMaxLength - START_LENGTH;
                     apples = apples.filter(a => a !== apple);                   // ... remove this apple from the list of apples ...
                     appleEaten=true;
                     break;                            // ... and terminate stop checking (you can only with one apple at a time!)
@@ -187,4 +192,33 @@ function checkApple() {
     if(appleEaten==true){
         addApple();
     }
+}
+
+function addScore() {
+    debugger;
+    console.log("Invoked AddScore()");
+    const formData = score;
+    let url = "/scores/add";
+    fetch(url, {
+        method: "POST",
+        body: formData,
+    }).then(response => {
+        return response.json()
+    }).then(response => {
+        if (response.hasOwnProperty("Error")) {
+            alert(JSON.stringify(response));
+        } else {
+            alert("Success")
+        }                                                  //in the client folder called welcome.html
+    });
+
+}
+
+function howToPlay(){
+    alert("Controls: \n\nUp Arrow = Move Up \nDown Arrow - Move Down " +
+        "\nLeft Arrow - Move Left \nRight Arrow - Move Right\n\n" +
+        "Objective:\n\nPress the 'Start Game' button to begin." +
+        "\nNavigate your snake in order to eat the red squares that appear." +
+        " The game ends when you either move into yourself or the borders." +
+        " To win, fill the entire grid. Good Luck!");
 }
