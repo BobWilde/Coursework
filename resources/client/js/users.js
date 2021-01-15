@@ -46,12 +46,13 @@ function formatUsersList(myJSONArray){
 
 function UsersLogin() {
     //debugger;
-    console.log("Invoked UsersLogin() ");
-    let url = "/users/login";
+    console.log("Invoked UsersLogin() "); //Puts this in console log so users know when this function is invoked.
+    let url = "/users/login"; //The URL for the login page
     let formData = new FormData(document.getElementById('LoginForm'));
+    //creates variable called formData which retrieves data from the html element 'Login Form'
 
     fetch(url, {
-        method: "POST",
+        method: "POST", // POST since you are giving information.
         body: formData,
     }).then(response => {
         return response.json();                 //now return that promise to JSON
@@ -61,7 +62,7 @@ function UsersLogin() {
     } else {
         Cookies.set("Token", response.Token);
         Cookies.set("UserName", response.UserName);
-        Cookies.set("Admin", response.Admin);
+        Cookies.set("Admin", response.Admin); // Sets all needed cookies
         window.open("index.html", "_self");       //open index.html in same tab
     }
 });
