@@ -23,7 +23,7 @@ public class Scores {
         System.out.println("Invoked Scores.ScoresList()");
         JSONArray response = new JSONArray();
         try {
-            PreparedStatement ps = Main.db.prepareStatement("SELECT Users.Username, Scores.Score FROM Scores JOIN Users ON Scores.UserID=Users.UserID");
+            PreparedStatement ps = Main.db.prepareStatement("SELECT Users.Username, Scores.Score FROM Scores JOIN Users ON Scores.UserID=Users.UserID ORDER BY Score DESC");
             ResultSet results = ps.executeQuery();
             while (results.next() == true) {
                 JSONObject row = new JSONObject();
