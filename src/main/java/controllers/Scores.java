@@ -20,10 +20,11 @@ public class Scores {
     @GET
     @Path("list")
     public String ScoresList() {
-        System.out.println("Invoked Scores.ScoresList()");
-        JSONArray response = new JSONArray();
+        System.out.println("Invoked Scores.ScoresList()"); //Displays in console log
+        JSONArray response = new JSONArray(); //Creates a new JSONArray containing response
         try {
             PreparedStatement ps = Main.db.prepareStatement("SELECT Users.Username, Scores.Score FROM Scores JOIN Users ON Scores.UserID=Users.UserID ORDER BY Score DESC");
+            //Prepared statement selecting username and corresponding score using a join between the Scores and Users table.
             ResultSet results = ps.executeQuery();
             while (results.next() == true) {
                 JSONObject row = new JSONObject();
@@ -31,10 +32,11 @@ public class Scores {
                 row.put("Score", results.getInt(2));
                 response.add(row);
             }
-            return response.toString();
+            //Adds a new object for each user and corresponding score until the end of the results array.
+            return response.toString(); //Returns the response as a string.
         } catch (Exception exception) {
             System.out.println("Database error: " + exception.getMessage());
-            return "{\"Error\": \"Unable to list items.  Error code xx.\"}";
+            return "{\"Error\": \"Unable to list items.  Error code xx.\"}"; // Error Message.
         }
     }
 
